@@ -43,6 +43,16 @@ conda update --yes --all
 conda install --yes conda-build==1.18.2
 conda info
 
+# Install CUDA support in the docker container.
+export CUDA_RPM_VERSION="7.5-18"
+export CUDA_RPM_MD5="01fd3415b197f9ddc4e58f5a4f2a9af6"
+curl "http://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/cuda-repo-rhel6-${CUDA_RPM_VERSION}.x86_64.rpm" > cuda.rpm
+md5sum cuda.rpm | grep "${CUDA_RPM_MD5}"
+yum install -y cuda.rpm
+yum clean all
+yum install -y cuda
+rm cuda.rpm
+
 # Embarking on 1 case(s).
     set -x
     export CONDA_PY=27

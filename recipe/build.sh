@@ -5,7 +5,7 @@ mkdir build
 cd build
 
 # Configure, build, test, and install.
-cmake -DCPU_ONLY=1 -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" ..
+cmake -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" ..
 make
 make runtest
 make install

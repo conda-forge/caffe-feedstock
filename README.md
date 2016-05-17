@@ -5,7 +5,7 @@ Home: http://caffe.berkeleyvision.org/
 
 Package license: BSD 2-Clause
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: A deep learning framework made with expression, speed, and modularity in mind.
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/caffe-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/caffe-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/caffe-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/caffe-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/caffe-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/caffe-feedstock/branch/master)

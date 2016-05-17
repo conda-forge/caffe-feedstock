@@ -5,6 +5,11 @@ mkdir build
 cd build
 
 # Configure, build, test, and install.
+if [ "$(uname)" == "Linux" ];
+then
+    # Stop Boost from using libquadmath.
+    export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
+fi
 cmake -DCPU_ONLY=1 -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" ..
 make
 make runtest

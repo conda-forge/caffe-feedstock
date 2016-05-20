@@ -23,7 +23,7 @@ requirements:
     - cython
     - nomkl
     - openblas
-    - boost
+    - boost 1.60*
     - hdf5 1.8.15*
     - gflags
     - glog
@@ -53,7 +53,7 @@ requirements:
   run:
     - nomkl
     - openblas
-    - boost
+    - boost 1.60*
     - hdf5 1.8.15*
     - gflags
     - glog

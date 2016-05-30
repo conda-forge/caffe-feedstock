@@ -12,7 +12,7 @@ source:
   sha1: 79e075d06bea856164c926b92a40242b0369965b
 
 build:
-  number: 2
+  number: 3
   skip: true  # [not (linux and py27)]
   features:
     - nomkl
@@ -24,11 +24,10 @@ requirements:
     - nomkl
     - openblas
     - boost 1.60.*
-    - hdf5 1.8.15*
     - gflags
     - glog
     - h5py
-    - hdf5 1.8.15*
+    - hdf5 1.8.17*
     - ipython
     - leveldb
     - lmdb
@@ -54,11 +53,10 @@ requirements:
     - nomkl
     - openblas
     - boost 1.60.*
-    - hdf5 1.8.15*
     - gflags
     - glog
     - h5py
-    - hdf5 1.8.15*
+    - hdf5 1.8.17*
     - ipython
     - leveldb
     - lmdb

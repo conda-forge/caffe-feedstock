@@ -12,7 +12,7 @@ source:
   sha1: 79e075d06bea856164c926b92a40242b0369965b
 
 build:
-  number: 3
+  number: 4
   skip: true  # [not (linux and py27)]
   features:
     - nomkl
@@ -23,7 +23,7 @@ requirements:
     - cython
     - nomkl
     - openblas
-    - boost 1.60.*
+    - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
     - glog
@@ -52,7 +52,7 @@ requirements:
   run:
     - nomkl
     - openblas
-    - boost 1.60.*
+    - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
     - glog

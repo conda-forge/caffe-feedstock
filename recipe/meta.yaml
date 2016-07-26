@@ -12,7 +12,7 @@ source:
   sha1: 79e075d06bea856164c926b92a40242b0369965b
 
 build:
-  number: 4
+  number: 5
   skip: true  # [not (linux and py27)]
   features:
     - nomkl

@@ -2,6 +2,8 @@
 {% set version_postfix = "rc3" %}
 {% set version = base_version + version_postfix %}
 
+{% set variant = "openblas" %}
+
 package:
   name: caffe
   version: {{ version }}
@@ -12,17 +14,17 @@ source:
   sha1: 79e075d06bea856164c926b92a40242b0369965b
 
 build:
-  number: 5
+  number: 200
   skip: true  # [not (linux and py27)]
   features:
-    - nomkl
+    - blas_{{ variant }}
 
 requirements:
   build:
     - cmake
     - cython
-    - nomkl
-    - openblas
+    - blas 1.1 {{ variant }}
+    - openblas 0.2.18*
     - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
@@ -50,8 +52,8 @@ requirements:
     - snappy
 
   run:
-    - nomkl
-    - openblas
+    - blas 1.1 {{ variant }}
+    - openblas 0.2.18*
     - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags

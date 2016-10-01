@@ -12,9 +12,13 @@ source:
   fn: caffe_{{ version }}.tar.gz
   url: https://github.com/BVLC/caffe/archive/{{ version_postfix }}.tar.gz
   sha1: 79e075d06bea856164c926b92a40242b0369965b
+  patches:
+    # Add PR ( https://github.com/BVLC/caffe/pull/4516 ) as a patch.
+    # This fixes an issue with linking against HDF5.
+    - PR_4516.diff
 
 build:
-  number: 200
+  number: 201
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
@@ -24,7 +28,7 @@ requirements:
     - cmake
     - cython
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18*
+    - openblas 0.2.18|0.2.18.*
     - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
@@ -53,7 +57,7 @@ requirements:
 
   run:
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18*
+    - openblas 0.2.18|0.2.18.*
     - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags

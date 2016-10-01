@@ -12,6 +12,10 @@ source:
   fn: caffe_{{ version }}.tar.gz
   url: https://github.com/BVLC/caffe/archive/{{ version_postfix }}.tar.gz
   sha1: 79e075d06bea856164c926b92a40242b0369965b
+  patches:
+    # Add PR ( https://github.com/BVLC/caffe/pull/4516 ) as a patch.
+    # This fixes an issue with linking against HDF5.
+    - PR_4516.diff
 
 build:
   number: 200

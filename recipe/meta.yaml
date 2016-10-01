@@ -24,7 +24,7 @@ requirements:
     - cmake
     - cython
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18*
+    - openblas 0.2.18|0.2.18.*
     - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
@@ -53,7 +53,7 @@ requirements:
 
   run:
     - blas 1.1 {{ variant }}
-    - openblas 0.2.18*
+    - openblas 0.2.18|0.2.18.*
     - boost 1.61.*
     - hdf5 1.8.17|1.8.17.*
     - gflags

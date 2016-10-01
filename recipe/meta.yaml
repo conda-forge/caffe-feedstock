@@ -18,7 +18,7 @@ source:
     - PR_4516.diff
 
 build:
-  number: 200
+  number: 201
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}

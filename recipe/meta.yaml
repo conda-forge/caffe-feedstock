@@ -18,7 +18,7 @@ source:
     - PR_4516.diff
 
 build:
-  number: 203
+  number: 204
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
@@ -41,7 +41,7 @@ requirements:
     - networkx
     - nose
     - numpy
-    - opencv 2.*
+    - opencv 3.*
     - pandas
     - pillow
     - protobuf
@@ -69,7 +69,7 @@ requirements:
     - matplotlib
     - networkx
     - numpy
-    - opencv 2.*
+    - opencv 3.*
     - pandas
     - pillow
     - protobuf

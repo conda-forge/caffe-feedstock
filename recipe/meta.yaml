@@ -18,7 +18,7 @@ source:
     - PR_4516.diff
 
 build:
-  number: 204
+  number: 205
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
@@ -29,7 +29,7 @@ requirements:
     - cython
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
-    - boost 1.62.*
+    - boost 1.63.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
     - glog
@@ -58,7 +58,7 @@ requirements:
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
-    - boost 1.62.*
+    - boost 1.63.*
     - hdf5 1.8.17|1.8.17.*
     - gflags
     - glog

@@ -14,7 +14,7 @@ source:
   sha1: afcb529881402b58733e00a66bf7ac6b7e969207
 
 build:
-  number: 0
+  number: 200
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}

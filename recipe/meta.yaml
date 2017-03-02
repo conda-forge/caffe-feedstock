@@ -110,6 +110,8 @@ test:
 
   imports:
     - caffe
+  commands:
+    - conda inspect linkages -n _test caffe  # [linux]
 
 about:
   home: http://caffe.berkeleyvision.org/

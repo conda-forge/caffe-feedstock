@@ -11,6 +11,18 @@ Summary: A deep learning framework made with expression, speed, and modularity i
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/caffe-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/caffe-feedstock)
+OSX: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/caffe/badges/version.svg)](https://anaconda.org/conda-forge/caffe)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/caffe/badges/downloads.svg)](https://anaconda.org/conda-forge/caffe)
+
 Installing caffe
 ================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `caffe` available on your platform
 ```
 conda search caffe --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/caffe-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/caffe-feedstock)
-OSX: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/caffe/badges/version.svg)](https://anaconda.org/conda-forge/caffe)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/caffe/badges/downloads.svg)](https://anaconda.org/conda-forge/caffe)
 
 
 Updating caffe-feedstock

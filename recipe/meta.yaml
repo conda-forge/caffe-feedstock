@@ -14,7 +14,7 @@ source:
   sha1: afcb529881402b58733e00a66bf7ac6b7e969207
 
 build:
-  number: 202
+  number: 203
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
@@ -25,7 +25,7 @@ requirements:
     - cython
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
-    - boost 1.63.*
+    - boost 1.64.*
     - hdf5 1.8.18|1.8.18.*
     - gflags 2.2.*
     - glog
@@ -54,7 +54,7 @@ requirements:
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
-    - boost 1.63.*
+    - boost 1.64.*
     - hdf5 1.8.18|1.8.18.*
     - gflags 2.2.*
     - glog

@@ -1,7 +1,5 @@
-{% set base_version = "1.0.0" %}
-{% set version_postfix = "rc4" %}
-{% set version = base_version + version_postfix %}
-
+{% set version = "1.0" %}
+{% set build = 200 %}
 {% set variant = "openblas" %}
 
 package:
@@ -10,11 +8,11 @@ package:
 
 source:
   fn: caffe_{{ version }}.tar.gz
-  url: https://github.com/BVLC/caffe/archive/{{ version_postfix }}.tar.gz
-  sha1: afcb529881402b58733e00a66bf7ac6b7e969207
+  url: https://github.com/BVLC/caffe/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 203
+  number: {{ build }}
   skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
@@ -40,7 +38,7 @@ requirements:
     - opencv 3.*
     - pandas
     - pillow
-    - protobuf
+    - protobuf 3.4.*
     - python
     - python-dateutil
     - python-gflags
@@ -68,7 +66,7 @@ requirements:
     - opencv 3.*
     - pandas
     - pillow
-    - protobuf
+    - protobuf 3.4.*
     - python
     - python-dateutil
     - python-gflags

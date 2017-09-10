@@ -10,7 +10,7 @@ then
     # Stop Boost from using libquadmath.
     export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
 fi
-cmake -DCPU_ONLY=1 -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" ..
+cmake -DCPU_ONLY=1 -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" -Dpython_version=${PY_VER:0:1} ..
 make
 make runtest
 make install

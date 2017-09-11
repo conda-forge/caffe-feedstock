@@ -14,7 +14,7 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [not linux]
+  skip: true  # [not (linux and py27)]
   features:
     - blas_{{ variant }}
 

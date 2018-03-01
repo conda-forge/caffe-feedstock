@@ -1,5 +1,5 @@
 {% set version = "1.0" %}
-{% set build = 201 %}
+{% set build = 202 %}
 {% set variant = "openblas" %}
 {% set sha256 = "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f" %}
 
@@ -24,7 +24,7 @@ requirements:
     - cython
     - blas 1.1 {{ variant }}
     - openblas 0.2.20|0.2.20.*
-    - boost 1.65.1
+    - boost 1.66.0
     - hdf5 1.10.1
     - gflags 2.2.*
     - glog
@@ -53,7 +53,7 @@ requirements:
   run:
     - blas 1.1 {{ variant }}
     - openblas 0.2.20|0.2.20.*
-    - boost 1.65.1
+    - boost 1.66.0
     - hdf5 1.10.1
     - gflags 2.2.*
     - glog

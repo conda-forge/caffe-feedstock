@@ -39,7 +39,7 @@ requirements:
     - opencv 3.*
     - pandas
     - pillow
-    - protobuf 3.4.*
+    - protobuf 3.5.*
     - python
     - python-dateutil
     - python-gflags
@@ -67,7 +67,7 @@ requirements:
     - opencv 3.*
     - pandas
     - pillow
-    - protobuf 3.4.*
+    - protobuf 3.5.*
     - python
     - python-dateutil
     - python-gflags

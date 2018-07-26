@@ -14,14 +14,16 @@ Summary: A deep learning framework made with expression, speed, and modularity i
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/caffe-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/caffe-feedstock)
-OSX: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/caffe-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/caffe-feedstock)
+![OSX disabled](https://img.shields.io/badge/OSX-disabled-lightgrey.svg)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/caffe/badges/version.svg)](https://anaconda.org/conda-forge/caffe)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/caffe/badges/downloads.svg)](https://anaconda.org/conda-forge/caffe)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-caffe-green.svg)](https://anaconda.org/conda-forge/caffe) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/caffe.svg)](https://anaconda.org/conda-forge/caffe) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/caffe.svg)](https://anaconda.org/conda-forge/caffe) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/caffe.svg)](https://anaconda.org/conda-forge/caffe) |
 
 Installing caffe
 ================

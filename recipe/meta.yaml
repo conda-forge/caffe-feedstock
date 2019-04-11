@@ -1,31 +1,31 @@
 {% set version = "1.0" %}
-{% set build = 202 %}
-{% set variant = "openblas" %}
-{% set sha256 = "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f" %}
+{% set build = 203 %}
+
 
 package:
   name: caffe
   version: {{ version }}
 
 source:
-  fn: caffe_{{ version }}.tar.gz
   url: https://github.com/BVLC/caffe/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f
+  patches:
+    - remove-py-tests.patch
 
 build:
   number: {{ build }}
-  skip: true  # [not (linux and py27)]
-  features:
-    - blas_{{ variant }}
+  skip: true  # [not linux]
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake
+
+  host:
     - cython
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
-    - boost 1.66.0
-    - hdf5 1.10.1
+    - boost
+    - hdf5
     - gflags 2.2.*
     - glog
     - h5py
@@ -36,10 +36,10 @@ requirements:
     - networkx
     - nose
     - numpy
-    - opencv 3.*
+    - opencv <4
     - pandas
     - pillow
-    - protobuf 3.5.*
+    - protobuf
     - python
     - python-dateutil
     - python-gflags
@@ -49,13 +49,14 @@ requirements:
     - scipy
     - six
     - snappy
+    - libblas
+    - libcblas
+    - gtest
 
   run:
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
-    - boost 1.66.0
-    - hdf5 1.10.1
-    - gflags 2.2.*
+    - boost
+    - hdf5
+    - gflags
     - glog
     - h5py
     - ipython
@@ -64,10 +65,10 @@ requirements:
     - matplotlib
     - networkx
     - numpy
-    - opencv 3.*
+    - opencv <4
     - pandas
     - pillow
-    - protobuf 3.5.*
+    - protobuf
     - python
     - python-dateutil
     - python-gflags
@@ -80,29 +81,9 @@ requirements:
 
 test:
   commands:
-    # Test commands.
-    - command -v "${PREFIX}/bin/caffe"
-    - command -v "${PREFIX}/bin/classification"
-    - command -v "${PREFIX}/bin/classify"
-    - command -v "${PREFIX}/bin/compute_image_mean"
-    - command -v "${PREFIX}/bin/convert_cifar_data"
-    - command -v "${PREFIX}/bin/convert_imageset"
-    - command -v "${PREFIX}/bin/convert_mnist_data"
-    - command -v "${PREFIX}/bin/convert_mnist_siamese_data"
-    - command -v "${PREFIX}/bin/detect"
-    - command -v "${PREFIX}/bin/device_query"
-    - command -v "${PREFIX}/bin/draw_net"
-    - command -v "${PREFIX}/bin/extract_features"
-    - command -v "${PREFIX}/bin/finetune_net"
-    - command -v "${PREFIX}/bin/net_speed_benchmark"
-    - command -v "${PREFIX}/bin/test_net"
-    - command -v "${PREFIX}/bin/train_net"
-    - command -v "${PREFIX}/bin/upgrade_net_proto_binary"
-    - command -v "${PREFIX}/bin/upgrade_net_proto_text"
-    - command -v "${PREFIX}/bin/upgrade_solver_proto_text"
-
     # Test includes.
     - test -d "${PREFIX}/include/caffe"
+    - test -d "${PREFIX}/bin/caffe"
 
     # Test libraries.
     - test -f "${PREFIX}/lib/libcaffe.so"
@@ -119,3 +100,4 @@ extra:
   recipe-maintainers:
     - jakirkham
     - 183amir
+    - marcelotrevisani

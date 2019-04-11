@@ -10,9 +10,16 @@ then
     # Stop Boost from using libquadmath.
     export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
 fi
-cmake -DCPU_ONLY=1 -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" -DCMAKE_INSTALL_LIBDIR=lib -Dpython_version=$PY_VER ..
-make
-make runtest
+cmake -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DCPU_ONLY=ON \
+      -DBLAS="open" \
+      -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -DCMAKE_INSTALL_LIBDIR=lib \
+      -Dpython_version=$PY_VER \
+      -DBUILD_docs=OFF \
+      ..
+
+make -j${CPU_COUNT}
 make install
 
 # Python installation is non-standard. So, we're fixing it.

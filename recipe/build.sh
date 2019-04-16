@@ -17,6 +17,9 @@ cmake -DCMAKE_PREFIX_PATH=${PREFIX} \
       -DCMAKE_INSTALL_LIBDIR=lib \
       -Dpython_version=$PY_VER \
       -DBUILD_docs=OFF \
+      -DPYTHON_EXECUTABLE="${PREFIX}/bin/python" \
+      -DNUMPY_INCLUDE_DIR="${SITE_PKGS}/numpy/core/include" \
+      -DNUMPY_VERSION=${NPY_VER}  \
       ..
 
 make -j${CPU_COUNT}

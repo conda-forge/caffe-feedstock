@@ -40,7 +40,7 @@ requirements:
     - pandas
     - pillow
     - protobuf 3.5.*
-    - {{ pin_python }}
+    - python  {{ pin_python }}
     - python-dateutil
     - python-gflags
     - python-leveldb
@@ -68,7 +68,7 @@ requirements:
     - pandas
     - pillow
     - protobuf 3.5.*
-    - {{ pin_python }}
+    - python  {{ pin_python }}
     - python-dateutil
     - python-gflags
     - python-leveldb

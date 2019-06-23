@@ -18,10 +18,10 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
   host:
     - python
     - boost
-    - cmake
     - cython
     # Unpin hdf5 when the new h5py is released.
     - hdf5 1.10.4

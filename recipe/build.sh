@@ -1,18 +1,43 @@
 #!/bin/bash
 
+set -ex
+
 # Setup CMake build location
-mkdir build
-cd build
+mkdir build && cd build
 
 # Configure, build, test, and install.
-if [ "$(uname)" == "Linux" ];
-then
+if [ "$(uname)" == "Linux" ]; then
     # Stop Boost from using libquadmath.
-    export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
+    export CXXFLAGS="${CXXFLAGS} -D BOOST_MATH_DISABLE_FLOAT128"
 fi
-cmake -DCPU_ONLY=1 -DBLAS="open" -DCMAKE_INSTALL_PREFIX="${PREFIX}" -DCMAKE_INSTALL_LIBDIR=lib -Dpython_version=$PY_VER ..
-make
-make runtest
+
+# fix issue with linker when using gcc 7.3.0
+if [[ ${target_platform} =~ .*linux.* ]]; then
+    export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
+fi
+
+if [[ ${blas_impl} == openblas ]]; then
+    BLAS=open
+else
+    BLAS=mkl
+fi
+
+cmake -D CPU_ONLY=1 \
+      -D BLAS="${BLAS}" \
+      -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -D NUMPY_INCLUDE_DIR="${SITE_PKGS}/numpy/core/include" \
+      -D NUMPY_VERSION=${NPY_VER} \
+      -D PYTHON_EXECUTABLE="${PREFIX}/bin/python" \
+      -D BUILD_docs="OFF" \
+      ${SRC_DIR}
+make -j${CPU_COUNT}
+
+# there's a math error associated with MKL seemingly
+# https://github.com/BVLC/caffe/issues/4083#issuecomment-227046096
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+make -j${CPU_COUNT} runtest
+
 make install
 
 # Python installation is non-standard. So, we're fixing it.
@@ -23,3 +48,8 @@ do
     cp "${PREFIX}/python/${FILENAME}" "${PREFIX}/bin/${FILENAME//.py}"
 done
 rm -rf "${PREFIX}/python/"
+
+if [[ -d "${PREFIX}/lib64" ]]; then
+    mv ${PREFIX}/lib64/* ${PREFIX}/lib/
+    rmdir ${PREFIX}/lib64
+fi

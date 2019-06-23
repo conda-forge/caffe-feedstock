@@ -1,0 +1,50 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+blas_impl:
+- mkl
+boost:
+- 1.70.0
+c_compiler:
+- clang
+c_compiler_version:
+- '4'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- clangxx
+cxx_compiler_version:
+- '4'
+glog:
+- 0.4.0
+libprotobuf:
+- '3.7'
+macos_machine:
+- x86_64-apple-darwin13.4.0
+macos_min_version:
+- '10.9'
+mkl:
+- '2019'
+openblas:
+- 0.3.6
+pin_run_as_build:
+  boost:
+    max_pin: x.x.x
+  libprotobuf:
+    max_pin: x.x
+  mkl:
+    max_pin: x
+  openblas:
+    max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  snappy:
+    max_pin: x.x.x
+python:
+- '3.6'
+snappy:
+- 1.1.7
+target_platform:
+- osx-64

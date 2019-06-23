@@ -1,0 +1,44 @@
+blas_impl:
+- openblas
+boost:
+- 1.70.0
+c_compiler:
+- vs2008
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- vs2008
+glog:
+- 0.4.0
+libprotobuf:
+- '3.7'
+mkl:
+- '2019'
+openblas:
+- 0.3.6
+pin_run_as_build:
+  boost:
+    max_pin: x.x.x
+  libprotobuf:
+    max_pin: x.x
+  mkl:
+    max_pin: x
+  openblas:
+    max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  snappy:
+    max_pin: x.x.x
+python:
+- '2.7'
+snappy:
+- 1.1.7
+target_platform:
+- win-64
+zip_keys:
+- - python
+  - c_compiler
+  - cxx_compiler

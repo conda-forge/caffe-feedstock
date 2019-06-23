@@ -10,16 +10,40 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      linux_pin_pythonpython 2.7:
-        CONFIG: linux_pin_pythonpython 2.7
+      linux_blas_implblispython2.7target_platformlinux-64:
+        CONFIG: linux_blas_implblispython2.7target_platformlinux-64
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_pin_pythonpython 3.6:
-        CONFIG: linux_pin_pythonpython 3.6
+      linux_blas_implblispython3.6target_platformlinux-64:
+        CONFIG: linux_blas_implblispython3.6target_platformlinux-64
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_pin_pythonpython 3.7:
-        CONFIG: linux_pin_pythonpython 3.7
+      linux_blas_implblispython3.7target_platformlinux-64:
+        CONFIG: linux_blas_implblispython3.7target_platformlinux-64
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implmklpython2.7target_platformlinux-64:
+        CONFIG: linux_blas_implmklpython2.7target_platformlinux-64
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implmklpython3.6target_platformlinux-64:
+        CONFIG: linux_blas_implmklpython3.6target_platformlinux-64
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implmklpython3.7target_platformlinux-64:
+        CONFIG: linux_blas_implmklpython3.7target_platformlinux-64
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implopenblaspython2.7target_platformlinux-64:
+        CONFIG: linux_blas_implopenblaspython2.7target_platformlinux-64
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implopenblaspython3.6target_platformlinux-64:
+        CONFIG: linux_blas_implopenblaspython3.6target_platformlinux-64
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implopenblaspython3.7target_platformlinux-64:
+        CONFIG: linux_blas_implopenblaspython3.7target_platformlinux-64
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
   steps:

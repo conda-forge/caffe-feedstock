@@ -35,6 +35,8 @@ cmake -D CPU_ONLY=1 \
       -D Boost_NO_SYSTEM_PATHS=TRUE \
       -D BOOST_ROOT:PATHNAME=$PREFIX \
       -D Boost_LIBRARY_DIRS:FILEPATH=${PREFIX}/lib \
+      -DPYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")  \
+      -DPYTHON_LIBRARY=$(python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
       ${SRC_DIR}
 make -j${CPU_COUNT}
     #   -D Boost_NO_BOOST_CMAKE=TRUE \

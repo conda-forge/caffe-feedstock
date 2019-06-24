@@ -31,6 +31,10 @@ cmake -D CPU_ONLY=1 \
       -D BUILD_docs="OFF" \
       -D Boost_INCLUDE_DIRS="${PREFIX}/include" \
       -D Boost_LIBRARIES="${PREFIX}/lib" \
+      -D Boost_NO_BOOST_CMAKE=TRUE \
+      -D Boost_NO_SYSTEM_PATHS=TRUE \
+      -D BOOST_ROOT:PATHNAME=$PREFIX \
+      -D Boost_LIBRARY_DIRS:FILEPATH=${PREFIX}/lib \
       ${SRC_DIR}
 make -j${CPU_COUNT}
     #   -D Boost_NO_BOOST_CMAKE=TRUE \

@@ -13,7 +13,7 @@ fi
 
 # fix issue with linker when using gcc 7.3.0
 if [[ ${target_platform} =~ .*linux.* ]]; then
-    export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
+    export LDFLAGS="${LDFLAGS} -L${STDLIB_DIR} -lboost_python -Wl,-rpath-link,${PREFIX}/lib"
 fi
 
 if [[ ${blas_impl} == openblas ]]; then

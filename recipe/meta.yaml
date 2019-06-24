@@ -30,7 +30,7 @@ requirements:
     - h5py
     - ipython
     - leveldb
-    - libprotobuf
+    - protobuf
     - lmdb
     - mkl-devel  {{ mkl }}  # [blas_impl == 'mkl']
     # Some of its dependencies are not built with openblas 0.3.6 yet.

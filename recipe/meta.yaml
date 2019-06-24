@@ -48,6 +48,7 @@ requirements:
     - scikit-image
     - six
     - snappy
+    - numpy
   run:
     - python
     - boost

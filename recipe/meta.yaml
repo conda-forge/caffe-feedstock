@@ -21,7 +21,7 @@ requirements:
     - cmake
   host:
     - python
-    - boost
+    - boost 1.66
     - cython
     # Unpin hdf5 when the new h5py is released.
     - hdf5 1.10.4
@@ -51,7 +51,7 @@ requirements:
     - numpy
   run:
     - python
-    - boost
+    - boost 1.66
     - h5py
     - ipython
     - matplotlib

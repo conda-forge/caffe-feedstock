@@ -3,7 +3,7 @@
 set -ex
 
 # Setup CMake build location
-mkdir build && cd build
+# mkdir build && cd build
 
 # Configure, build, test, and install.
 if [ "$(uname)" == "Linux" ]; then
@@ -21,6 +21,8 @@ if [[ ${blas_impl} == openblas ]]; then
 else
     BLAS=mkl
 fi
+
+cp $RECIPE_DIR/Makefile Makefile.config
 
 #cmake -D CPU_ONLY=1 \
 #      -D BLAS="${BLAS}" \
@@ -52,9 +54,7 @@ fi
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 
-cp $RECIPE_DIR/Makefile $SRC_DIR/.
-
-make -j${CPU_COUNT} ..
+make -j${CPU_COUNT} all BLAS=$BLAS
 
 make install
 

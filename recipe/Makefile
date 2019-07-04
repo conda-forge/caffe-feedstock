@@ -24,7 +24,7 @@ CPU_ONLY := 1
 
 # To customize your choice of compiler, uncomment and set the following.
 # N.B. the default for Linux is g++ and the default for OSX is clang++
-CUSTOM_CXX := $(CXX)
+CUSTOM_CXX := ${GXX}
 
 # CUDA directory contains bin/ and lib/ directories that we need.
 # CUDA_DIR := /usr/local/cuda
@@ -54,8 +54,8 @@ BLAS ?= open
 # Custom (MKL/ATLAS/OpenBLAS) include and lib directories.
 # Leave commented to accept the defaults for your choice of BLAS
 # (which should work)!
-BLAS_INCLUDE ?= $(PREFIX)/include
-BLAS_LIB ?= $(PREFIX)/lib
+BLAS_INCLUDE := ${PREFIX}/include
+BLAS_LIB := ${PREFIX}/lib
 
 # Homebrew puts openblas in a directory that is not on the standard search path
 # BLAS_INCLUDE := $(shell brew --prefix openblas)/include
@@ -67,10 +67,10 @@ BLAS_LIB ?= $(PREFIX)/lib
 #		/usr/lib/python2.7/dist-packages/numpy/core/include
 # Anaconda Python distribution is quite popular. Include path:
 # Verify anaconda location, sometimes it's in root.
-# ANACONDA_HOME ?= $(PREFIX)
-PYTHON_INCLUDE_LIB ?= $(shell python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")
-NUMPY_INCLUDE_PATH ?= $(dir $(shell python -c 'import numpy.core; print(numpy.core.__file__)'))/include
-PYTHON_INCLUDE ?= $(PREFIX)/include \
+ANACONDA_HOME := $(PREFIX)
+PYTHON_INCLUDE_LIB := $(shell python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")
+NUMPY_INCLUDE_PATH := $(dir $(shell python -c 'import numpy.core; print(numpy.core.__file__)'))include
+PYTHON_INCLUDE := ${PREFIX}/include \
 		  $(PYTHON_INCLUDE_LIB) \
 		  $(NUMPY_INCLUDE_PATH)
 
@@ -78,11 +78,10 @@ PYTHON_INCLUDE ?= $(PREFIX)/include \
 PYTHON_FOLDER := $(basename $(PYTHON_INCLUDE_LIB))
 PYTHON_LIBRARIES := boost_python$(CONDA_PY) $(PYTHON_FOLDER)
 
-
 # PYTHON_LIBRARIES := boost_python3 python3.5m
 
 # We need to be able to find libpythonX.X.so or .dylib.
-PYTHON_LIB := $(PREFIX)/lib
+PYTHON_LIB := ${PREFIX}/lib
 
 # Homebrew installs numpy in a non standard path (keg only)
 # PYTHON_INCLUDE += $(dir $(shell python -c 'import numpy.core; print(numpy.core.__file__)'))/include
@@ -92,8 +91,8 @@ PYTHON_LIB := $(PREFIX)/lib
 WITH_PYTHON_LAYER := 1
 
 # Whatever else you find you need goes here.
-INCLUDE_DIRS ?= $(PYTHON_INCLUDE)
-LIBRARY_DIRS ?= $(PYTHON_LIB)
+INCLUDE_DIRS := $(PYTHON_INCLUDE)
+LIBRARY_DIRS := $(PYTHON_LIB)
 
 # NCCL acceleration switch (uncomment to build with NCCL)
 # https://github.com/NVIDIA/nccl (last tested version: v1.2.3-1+cuda8.0)

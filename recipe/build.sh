@@ -54,7 +54,7 @@ export MKL_NUM_THREADS=1
 
 cp $RECIPE_DIR/Makefile $SRC_DIR/.
 
-make -j${CPU_COUNT} runtest
+make -j${CPU_COUNT} ..
 
 make install
 

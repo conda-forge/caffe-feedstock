@@ -22,26 +22,26 @@ else
     BLAS=mkl
 fi
 
-cmake -D CPU_ONLY=1 \
-      -D BLAS="${BLAS}" \
-      -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
-      -D NUMPY_INCLUDE_DIR="${SP_DIR}/numpy/core/include" \
-      -D NUMPY_VERSION=${NPY_VER} \
-      -D PYTHON_EXECUTABLE="${PREFIX}/bin/python" \
-      -D BUILD_docs="OFF" \
-      -D Boost_INCLUDE_DIRS="${PREFIX}/include/boost" \
-      -D Boost_LIBRARIES="${PREFIX}/lib" \
-      -D BOOST_LIBRARYDIR="${PREFIX}/lib" \
-      -D Boost_NO_BOOST_CMAKE=TRUE \
-      -D Boost_NO_SYSTEM_PATHS=TRUE \
-      -D BOOST_ROOT:PATHNAME=$PREFIX \
-      -D Boost_LIBRARY_DIRS:FILEPATH=${PREFIX}/lib \
-      -DPYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")  \
-      -DPYTHON_LIBRARY=$(python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
-      -DMKL_INCLUDE_DIR="${PREFIX}/include" \
-      -DMKL_RT_LIBRARY="${PREFIX}/lib" \
-      ${SRC_DIR}
-make -j${CPU_COUNT}
+#cmake -D CPU_ONLY=1 \
+#      -D BLAS="${BLAS}" \
+#      -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
+#      -D NUMPY_INCLUDE_DIR="${SP_DIR}/numpy/core/include" \
+#      -D NUMPY_VERSION=${NPY_VER} \
+#      -D PYTHON_EXECUTABLE="${PREFIX}/bin/python" \
+#      -D BUILD_docs="OFF" \
+#      -D Boost_INCLUDE_DIRS="${PREFIX}/include/boost" \
+#      -D Boost_LIBRARIES="${PREFIX}/lib" \
+#      -D BOOST_LIBRARYDIR="${PREFIX}/lib" \
+#      -D Boost_NO_BOOST_CMAKE=TRUE \
+#      -D Boost_NO_SYSTEM_PATHS=TRUE \
+#      -D BOOST_ROOT:PATHNAME=$PREFIX \
+#      -D Boost_LIBRARY_DIRS:FILEPATH=${PREFIX}/lib \
+#      -DPYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")  \
+#      -DPYTHON_LIBRARY=$(python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") \
+#      -DMKL_INCLUDE_DIR="${PREFIX}/include" \
+#      -DMKL_RT_LIBRARY="${PREFIX}/lib" \
+#      ${SRC_DIR}
+# make -j${CPU_COUNT}
     #   -D Boost_NO_BOOST_CMAKE=TRUE \
     #   -D Boost_NO_SYSTEM_PATHS=TRUE \
     #   -D BOOST_ROOT:PATHNAME=$PREFIX \
@@ -51,6 +51,9 @@ make -j${CPU_COUNT}
 # https://github.com/BVLC/caffe/issues/4083#issuecomment-227046096
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
+
+cp $RECIPE_DIR/Makefile $SRC_DIR/.
+
 make -j${CPU_COUNT} runtest
 
 make install

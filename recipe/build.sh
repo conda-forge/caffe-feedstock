@@ -54,7 +54,12 @@ cp $RECIPE_DIR/Makefile Makefile.config
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 
-make -j${CPU_COUNT} all BLAS=$BLAS
+ls $PREFIX/lib
+echo
+ls $PREFIX/include
+echo "BUILD PREFIX"
+ls $BUILD_PREFIX/include
+make all BLAS=$BLAS ANACONDA_HOME=$PREFIX CUSTOM_CXX=$GXX 
 
 make install
 

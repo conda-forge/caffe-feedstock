@@ -78,7 +78,11 @@ BLAS_LIB := $(ANACONDA_HOME)/lib
 
 # Uncomment to use Python 3 (default is Python 2)
 PYTHON_FOLDER := $(basename $(PYTHON_INCLUDE_LIB))
-PYTHON_LIBRARIES := boost_python $(PYTHON_FOLDER)
+ifeq ($(PY3K), 1)
+    PYTHON_LIBRARIES := boost_python3 $(PYTHON_FOLDER)
+else
+    PYTHON_LIBRARIES := boost_python2 $(PYTHON_FOLDER)
+endif
 
 # PYTHON_LIBRARIES := boost_python3 python3.5m
 
@@ -95,7 +99,8 @@ WITH_PYTHON_LAYER := 1
 # Whatever else you find you need goes here.
 INCLUDE_DIRS := $(PYTHON_INCLUDE) \
 		$(ANACONDA_HOME)/include/opencv4 \
-		$(ANACONDA_HOME)/include/opencv4/opencv2
+		$(ANACONDA_HOME)/include/opencv4/opencv2 \
+		$(ANACONDA_HOME)/include/boost
 LIBRARY_DIRS := $(PYTHON_LIB)
 
 # NCCL acceleration switch (uncomment to build with NCCL)

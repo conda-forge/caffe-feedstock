@@ -93,7 +93,9 @@ PYTHON_LIB := $(ANACONDA_HOME)/lib
 WITH_PYTHON_LAYER := 1
 
 # Whatever else you find you need goes here.
-INCLUDE_DIRS := $(PYTHON_INCLUDE)
+INCLUDE_DIRS := $(PYTHON_INCLUDE) \
+		$(ANACONDA_HOME)/include/opencv4 \
+		$(ANACONDA_HOME)/include/opencv4/opencv2
 LIBRARY_DIRS := $(PYTHON_LIB)
 
 # NCCL acceleration switch (uncomment to build with NCCL)

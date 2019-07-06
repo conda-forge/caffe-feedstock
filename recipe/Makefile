@@ -78,7 +78,7 @@ BLAS_LIB := $(ANACONDA_HOME)/lib
 
 # Uncomment to use Python 3 (default is Python 2)
 PYTHON_FOLDER := $(shell basename $(PYTHON_INCLUDE_LIB))
-PYTHON_LIBRARIES := boost_python $(PYTHON_FOLDER)
+PYTHON_LIBRARIES := boost_python$(CONDA_PY) $(PYTHON_FOLDER)
 
 # PYTHON_LIBRARIES := boost_python3 python3.5m
 

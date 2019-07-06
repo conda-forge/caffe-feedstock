@@ -6,15 +6,15 @@ set -ex
 # mkdir build && cd build
 
 # Configure, build, test, and install.
-if [ "$(uname)" == "Linux" ]; then
+#if [ "$(uname)" == "Linux" ]; then
     # Stop Boost from using libquadmath.
-    export CXXFLAGS="${CXXFLAGS} -D BOOST_MATH_DISABLE_FLOAT128"
-fi
+#    export CXXFLAGS="${CXXFLAGS} -D BOOST_MATH_DISABLE_FLOAT128"
+#fi
 
 # fix issue with linker when using gcc 7.3.0
-if [[ ${target_platform} =~ .*linux.* ]]; then
-    export LDFLAGS="${LDFLAGS} -L${STDLIB_DIR} -lboost_python -Wl,-rpath-link,${PREFIX}/lib"
-fi
+#if [[ ${target_platform} =~ .*linux.* ]]; then
+#    export LDFLAGS="${LDFLAGS} -L${STDLIB_DIR} -lboost_python -Wl,-rpath-link,${PREFIX}/lib"
+#castingfi
 
 if [[ ${blas_impl} == openblas ]]; then
     BLAS=open

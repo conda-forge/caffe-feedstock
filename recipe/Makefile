@@ -77,12 +77,8 @@ BLAS_INCLUDE := $(ANACONDA_HOME)/include
 BLAS_LIB := $(ANACONDA_HOME)/lib
 
 # Uncomment to use Python 3 (default is Python 2)
-PYTHON_FOLDER := $(basename $(PYTHON_INCLUDE_LIB))
-ifeq ($(PY3K), 1)
-    PYTHON_LIBRARIES := boost_python3 $(PYTHON_FOLDER)
-else
-    PYTHON_LIBRARIES := boost_python2 $(PYTHON_FOLDER)
-endif
+PYTHON_FOLDER := $(shell basename $(PYTHON_INCLUDE_LIB))
+PYTHON_LIBRARIES := boost_python $(PYTHON_FOLDER)
 
 # PYTHON_LIBRARIES := boost_python3 python3.5m
 

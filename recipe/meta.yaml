@@ -32,6 +32,7 @@ requirements:
     - leveldb
     - protobuf
     - lmdb
+    - libcblas  # [blas_impl == 'mkl']
     - mkl-include  {{ mkl }}  # [blas_impl == 'mkl']
     - mkl  {{ mkl }}  # [blas_impl == 'mkl']
     - mkl-devel  {{ mkl }}  # [blas_impl == 'mkl']

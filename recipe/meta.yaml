@@ -32,11 +32,12 @@ requirements:
     - leveldb
     - protobuf
     - lmdb
-    - mkl-include  {{ mkl }}  # [blas_impl == 'mkl']
-    - mkl  {{ mkl }}  # [blas_impl == 'mkl']
-    - mkl-devel  {{ mkl }}  # [blas_impl == 'mkl']
+    - libcblas      # [blas_impl == 'mkl']
+    - mkl-include   # [blas_impl == 'mkl']
+    - mkl           # [blas_impl == 'mkl']
+    - mkl-devel     # [blas_impl == 'mkl']
     # Some of its dependencies are not built with openblas 0.3.6 yet.
-    - openblas
+    - openblas  # [blas_impl == 'openblas']
     - matplotlib
     - networkx
     - nose
@@ -55,6 +56,7 @@ requirements:
     - python
     - boost
     - opencv
+    - gflags
     - lmdb
     - h5py
     - ipython

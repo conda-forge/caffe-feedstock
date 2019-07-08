@@ -60,8 +60,11 @@ ls $PREFIX/include
 echo
 
 make all BLAS=$BLAS ANACONDA_HOME=$PREFIX CUSTOM_CXX=$GXX VERBOSE=1
+make pycaffe
+make distribute
 
-make install
+ls build
+ls distribute
 
 # Python installation is non-standard. So, we're fixing it.
 mv "${PREFIX}/python/caffe" "${SP_DIR}/"

@@ -3,12 +3,13 @@ About caffe
 
 Home: http://caffe.berkeleyvision.org/
 
-Package license: BSD 2-Clause
+Package license: BSD-2-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: A deep learning framework made with expression, speed, and modularity in mind.
+Summary: A deep learning framework made with expression, speed, and modularity in mind
 
+Caffe is a deep learning framework brewed for expression, speed,modularity, openness and community.
 
 
 Current build status
@@ -29,24 +30,24 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_pin_pythonpython 2.7</td>
+              <td>linux_blas_implopenblaspython2.7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_pin_pythonpython 2.7" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_blas_implopenblaspython2.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_pin_pythonpython 3.6</td>
+              <td>linux_blas_implopenblaspython3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_pin_pythonpython 3.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_blas_implopenblaspython3.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_pin_pythonpython 3.7</td>
+              <td>linux_blas_implopenblaspython3.7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_pin_pythonpython 3.7" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_blas_implopenblaspython3.7" alt="variant">
                 </a>
               </td>
             </tr>
@@ -165,4 +166,5 @@ Feedstock Maintainers
 * [@183amir](https://github.com/183amir/)
 * [@jakirkham](https://github.com/jakirkham/)
 * [@marcelotrevisani](https://github.com/marcelotrevisani/)
+* [@ocefpaf](https://github.com/ocefpaf/)
 

@@ -1,74 +1,70 @@
 {% set version = "1.0" %}
-{% set build = 202 %}
-{% set variant = "openblas" %}
-{% set sha256 = "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f" %}
 
 package:
   name: caffe
   version: {{ version }}
 
 source:
-  fn: caffe_{{ version }}.tar.gz
   url: https://github.com/BVLC/caffe/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f
+  patches:
+    - backport_6638-support-opencv4.patch
 
 build:
-  number: {{ build }}
-  skip: true  # [not (linux and py27)]
-  features:
-    - blas_{{ variant }}
+  number: 203
+  detect_binary_files_with_prefix: False
+  skip: True  # [win or osx or blas_impl != 'openblas']
 
 requirements:
   build:
-    - cmake
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - python
+    - boost
     - cython
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
-    - boost 1.66.0
-    - hdf5 1.10.1
-    - gflags 2.2.*
+    # Unpin hdf5 when the new h5py is released.
+    - hdf5 1.10.4
+    - gflags
     - glog
     - h5py
     - ipython
     - leveldb
+    - protobuf
     - lmdb
+    - libcblas      # [blas_impl == 'mkl']
+    - mkl-include   # [blas_impl == 'mkl']
+    - mkl           # [blas_impl == 'mkl']
+    - mkl-devel     # [blas_impl == 'mkl']
+    # Some of its dependencies are not built with openblas 0.3.6 yet.
+    - openblas      # [blas_impl == 'openblas']
     - matplotlib
     - networkx
     - nose
-    - numpy
-    - opencv 3.*
+    - opencv
     - pandas
     - pillow
-    - protobuf 3.5.*
-    - python  {{ pin_python }}
     - python-dateutil
     - python-gflags
     - python-leveldb
     - pyyaml
     - scikit-image
-    - scipy
     - six
     - snappy
-
+    - numpy
   run:
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
-    - boost 1.66.0
-    - hdf5 1.10.1
-    - gflags 2.2.*
-    - glog
+    - python
+    - boost
+    - opencv
+    - gflags
+    - lmdb
     - h5py
     - ipython
-    - leveldb
-    - lmdb
     - matplotlib
     - networkx
-    - numpy
-    - opencv 3.*
+    - {{ pin_compatible('numpy') }}
     - pandas
-    - pillow
-    - protobuf 3.5.*
-    - python  {{ pin_python }}
+    - protobuf
     - python-dateutil
     - python-gflags
     - python-leveldb
@@ -76,47 +72,50 @@ requirements:
     - scikit-image
     - scipy
     - six
-    - snappy
 
 test:
   commands:
     # Test commands.
-    - command -v "${PREFIX}/bin/caffe"
-    - command -v "${PREFIX}/bin/classification"
-    - command -v "${PREFIX}/bin/classify"
-    - command -v "${PREFIX}/bin/compute_image_mean"
-    - command -v "${PREFIX}/bin/convert_cifar_data"
-    - command -v "${PREFIX}/bin/convert_imageset"
-    - command -v "${PREFIX}/bin/convert_mnist_data"
-    - command -v "${PREFIX}/bin/convert_mnist_siamese_data"
-    - command -v "${PREFIX}/bin/detect"
-    - command -v "${PREFIX}/bin/device_query"
-    - command -v "${PREFIX}/bin/draw_net"
-    - command -v "${PREFIX}/bin/extract_features"
-    - command -v "${PREFIX}/bin/finetune_net"
-    - command -v "${PREFIX}/bin/net_speed_benchmark"
-    - command -v "${PREFIX}/bin/test_net"
-    - command -v "${PREFIX}/bin/train_net"
-    - command -v "${PREFIX}/bin/upgrade_net_proto_binary"
-    - command -v "${PREFIX}/bin/upgrade_net_proto_text"
-    - command -v "${PREFIX}/bin/upgrade_solver_proto_text"
+    - command -v "${PREFIX}/bin/caffe"                        # [unix]
+    - command -v "${PREFIX}/bin/classification"               # [unix]
+    - command -v "${PREFIX}/bin/compute_image_mean"           # [unix]
+    - command -v "${PREFIX}/bin/convert_cifar_data"           # [unix]
+    - command -v "${PREFIX}/bin/convert_imageset"             # [unix]
+    - command -v "${PREFIX}/bin/convert_mnist_data"           # [unix]
+    - command -v "${PREFIX}/bin/convert_mnist_siamese_data"   # [unix]
+    - command -v "${PREFIX}/bin/device_query"                 # [unix]
+    - command -v "${PREFIX}/bin/extract_features"             # [unix]
+    - command -v "${PREFIX}/bin/finetune_net"                 # [unix]
+    - command -v "${PREFIX}/bin/net_speed_benchmark"          # [unix]
+    - command -v "${PREFIX}/bin/test_net"                     # [unix]
+    - command -v "${PREFIX}/bin/train_net"                    # [unix]
+    - command -v "${PREFIX}/bin/upgrade_net_proto_binary"     # [unix]
+    - command -v "${PREFIX}/bin/upgrade_net_proto_text"       # [unix]
+    - command -v "${PREFIX}/bin/upgrade_solver_proto_text"    # [unix]
 
     # Test includes.
-    - test -d "${PREFIX}/include/caffe"
+    - test -d "${PREFIX}/include/caffe"                       # [unix]
 
     # Test libraries.
-    - test -f "${PREFIX}/lib/libcaffe.so"
+    - test -f "${PREFIX}/lib/libcaffe${SHLIB_EXT}"            # [unix]
+    - test -f "${PREFIX}/lib/libcaffe.a"                      # [unix]
+    
 
   imports:
     - caffe
 
 about:
   home: http://caffe.berkeleyvision.org/
-  license: BSD 2-Clause
-  summary: A deep learning framework made with expression, speed, and modularity in mind.
+  license: BSD-2-Clause
+  summary: "A deep learning framework made with expression, speed, and modularity in mind"
+  description: |
+    Caffe is a deep learning framework brewed for expression, speed,modularity, openness and community.
+  doc_url: http://caffe.berkeleyvision.org/tutorial/
+  doc_source_url: https://github.com/BVLC/caffe
 
 extra:
   recipe-maintainers:
     - jakirkham
     - 183amir
     - marcelotrevisani
+    - ocefpaf

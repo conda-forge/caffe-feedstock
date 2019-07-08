@@ -13,7 +13,7 @@ source:
 build:
   number: 203
   detect_binary_files_with_prefix: False
-  skip: True  # [win or osx or blas_impl == 'mkl']
+  skip: True  # [win or osx or blas_impl != 'openblas']
 
 requirements:
   build:

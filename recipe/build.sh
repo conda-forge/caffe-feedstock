@@ -65,17 +65,23 @@ make distribute
 
 ls build
 ls distribute
+ls distribute/proto
+ls distribute/bin
+ls distribute/lib
+ls distribute/include
 
 # Python installation is non-standard. So, we're fixing it.
-mv "${PREFIX}/python/caffe" "${SP_DIR}/"
-for FILENAME in $( cd "${PREFIX}/python/" && find . -name "*.py" | sed 's|./||' );
-do
-    chmod +x "${PREFIX}/python/${FILENAME}"
-    cp "${PREFIX}/python/${FILENAME}" "${PREFIX}/bin/${FILENAME//.py}"
-done
-rm -rf "${PREFIX}/python/"
+cp -r distribute/bin ${PREFIX}/bin
+cp -r distribute/include ${PREFIX}/include
+cp -r distribute/lib ${PREFIX}/lib
 
-if [[ -d "${PREFIX}/lib64" ]]; then
-    mv ${PREFIX}/lib64/* ${PREFIX}/lib/
-    rmdir ${PREFIX}/lib64
+mv distribute/python/caffe "${SP_DIR}/"
+for FILENAME in $( cd "distribute/python/" && find . -name "*.py" | sed 's|./||' );
+do
+    chmod +x "distribute/python/${FILENAME}"
+    cp "distribute/python/${FILENAME}" "distribute/bin/${FILENAME//.py}"
+done
+
+if [[ -d "distribute/lib64" ]]; then
+    mv distribute/lib64/* ${PREFIX}/lib/
 fi

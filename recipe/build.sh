@@ -71,9 +71,9 @@ ls distribute/lib
 ls distribute/include
 
 # Python installation is non-standard. So, we're fixing it.
-cp -r distribute/bin ${PREFIX}/bin
-cp -r distribute/include ${PREFIX}/include
-cp -r distribute/lib ${PREFIX}/lib
+cp -r distribute/bin ${PREFIX}/
+cp -r distribute/include ${PREFIX}/
+cp -r distribute/lib ${PREFIX}/
 
 mv distribute/python/caffe "${SP_DIR}/"
 for FILENAME in $( cd "distribute/python/" && find . -name "*.py" | sed 's|./||' );

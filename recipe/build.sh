@@ -18,7 +18,6 @@ export MKL_NUM_THREADS=1
 make all BLAS=$BLAS ANACONDA_HOME=$PREFIX CUSTOM_CXX=$GXX VERBOSE=1 -j${CPU_COUNT}
 make pycaffe -j${CPU_COUNT}
 make distribute
-/include
 
 # Python installation is non-standard. So, we're fixing it.
 for f in distribute/bin/*.bin; do mv $f distribute/bin/`basename $f .bin`; done; 

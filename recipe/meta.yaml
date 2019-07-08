@@ -60,6 +60,7 @@ requirements:
     - matplotlib
     - networkx
     - {{ pin_compatible('numpy') }}
+    - gflags
     - pandas
     - protobuf
     - python-dateutil

@@ -32,12 +32,11 @@ requirements:
     - leveldb
     - protobuf
     - lmdb
-    - libcblas  # [blas_impl == 'mkl']
     - mkl-include  {{ mkl }}  # [blas_impl == 'mkl']
     - mkl  {{ mkl }}  # [blas_impl == 'mkl']
     - mkl-devel  {{ mkl }}  # [blas_impl == 'mkl']
     # Some of its dependencies are not built with openblas 0.3.6 yet.
-    - openblas  # [blas_impl == 'openblas']
+    - openblas
     - matplotlib
     - networkx
     - nose
@@ -55,12 +54,13 @@ requirements:
   run:
     - python
     - boost
+    - opencv
+    - lmdb
     - h5py
     - ipython
     - matplotlib
     - networkx
     - {{ pin_compatible('numpy') }}
-    - gflags
     - pandas
     - protobuf
     - python-dateutil
@@ -74,31 +74,30 @@ requirements:
 test:
   commands:
     # Test commands.
-    - command -v "${PREFIX}/bin/caffe"
-    - command -v "${PREFIX}/bin/classification"
-    - command -v "${PREFIX}/bin/classify"
-    - command -v "${PREFIX}/bin/compute_image_mean"
-    - command -v "${PREFIX}/bin/convert_cifar_data"
-    - command -v "${PREFIX}/bin/convert_imageset"
-    - command -v "${PREFIX}/bin/convert_mnist_data"
-    - command -v "${PREFIX}/bin/convert_mnist_siamese_data"
-    - command -v "${PREFIX}/bin/detect"
-    - command -v "${PREFIX}/bin/device_query"
-    - command -v "${PREFIX}/bin/draw_net"
-    - command -v "${PREFIX}/bin/extract_features"
-    - command -v "${PREFIX}/bin/finetune_net"
-    - command -v "${PREFIX}/bin/net_speed_benchmark"
-    - command -v "${PREFIX}/bin/test_net"
-    - command -v "${PREFIX}/bin/train_net"
-    - command -v "${PREFIX}/bin/upgrade_net_proto_binary"
-    - command -v "${PREFIX}/bin/upgrade_net_proto_text"
-    - command -v "${PREFIX}/bin/upgrade_solver_proto_text"
+    - command -v "${PREFIX}/bin/caffe"                        # [unix]
+    - command -v "${PREFIX}/bin/classification"               # [unix]
+    - command -v "${PREFIX}/bin/compute_image_mean"           # [unix]
+    - command -v "${PREFIX}/bin/convert_cifar_data"           # [unix]
+    - command -v "${PREFIX}/bin/convert_imageset"             # [unix]
+    - command -v "${PREFIX}/bin/convert_mnist_data"           # [unix]
+    - command -v "${PREFIX}/bin/convert_mnist_siamese_data"   # [unix]
+    - command -v "${PREFIX}/bin/device_query"                 # [unix]
+    - command -v "${PREFIX}/bin/extract_features"             # [unix]
+    - command -v "${PREFIX}/bin/finetune_net"                 # [unix]
+    - command -v "${PREFIX}/bin/net_speed_benchmark"          # [unix]
+    - command -v "${PREFIX}/bin/test_net"                     # [unix]
+    - command -v "${PREFIX}/bin/train_net"                    # [unix]
+    - command -v "${PREFIX}/bin/upgrade_net_proto_binary"     # [unix]
+    - command -v "${PREFIX}/bin/upgrade_net_proto_text"       # [unix]
+    - command -v "${PREFIX}/bin/upgrade_solver_proto_text"    # [unix]
 
     # Test includes.
-    - test -d "${PREFIX}/include/caffe"
+    - test -d "${PREFIX}/include/caffe"                       # [unix]
 
     # Test libraries.
-    - test -f "${PREFIX}/lib/libcaffe.so"
+    - test -f "${PREFIX}/lib/libcaffe${SHLIB_EXT}"            # [unix]
+    - test -f "${PREFIX}/lib/libcaffe.a"                      # [unix]
+    
 
   imports:
     - caffe

@@ -59,8 +59,8 @@ echo
 ls $PREFIX/include
 echo
 
-make all BLAS=$BLAS ANACONDA_HOME=$PREFIX CUSTOM_CXX=$GXX VERBOSE=1
-make pycaffe
+make all BLAS=$BLAS ANACONDA_HOME=$PREFIX CUSTOM_CXX=$GXX VERBOSE=1 -j8
+make pycaffe  -j8
 make distribute
 
 ls build
@@ -71,6 +71,7 @@ ls distribute/lib
 ls distribute/include
 
 # Python installation is non-standard. So, we're fixing it.
+for f in distribute/bin/*.bin; do mv $f distribute/bin/`basename $f .bin`; done; 
 cp -r distribute/bin ${PREFIX}/
 cp -r distribute/include ${PREFIX}/
 cp -r distribute/lib ${PREFIX}/

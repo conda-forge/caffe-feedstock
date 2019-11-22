@@ -23,8 +23,7 @@ requirements:
     - python
     - boost
     - cython
-    # Unpin hdf5 when the new h5py is released.
-    - hdf5 1.10.4
+    - hdf5
     - gflags
     - glog
     - h5py
@@ -107,6 +106,7 @@ test:
 about:
   home: http://caffe.berkeleyvision.org/
   license: BSD-2-Clause
+  license_file: LICENSE
   summary: "A deep learning framework made with expression, speed, and modularity in mind"
   description: |
     Caffe is a deep learning framework brewed for expression, speed,modularity, openness and community.

@@ -35,6 +35,6 @@ pin_run_as_build:
   snappy:
     max_pin: x.x.x
 python:
-- '3.6'
+- '3.8'
 snappy:
 - 1.1.7

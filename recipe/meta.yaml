@@ -11,7 +11,7 @@ source:
     - backport_6638-support-opencv4.patch
 
 build:
-  number: 203
+  number: 204
   detect_binary_files_with_prefix: False
   skip: True  # [win or osx or blas_impl != 'openblas']
 
@@ -30,6 +30,7 @@ requirements:
     - ipython
     - leveldb
     - protobuf
+    - libprotobuf
     - lmdb
     - libcblas      # [blas_impl == 'mkl']
     - mkl-include   # [blas_impl == 'mkl']
@@ -64,6 +65,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - pandas
     - protobuf
+    - libprotobuf
     - python-dateutil
     - python-gflags
     - python-leveldb

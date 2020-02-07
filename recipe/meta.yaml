@@ -11,7 +11,7 @@ source:
     - backport_6638-support-opencv4.patch
 
 build:
-  number: 204
+  number: 205
   detect_binary_files_with_prefix: False
   skip: True  # [win or osx or blas_impl != 'openblas']
 
@@ -48,7 +48,7 @@ requirements:
     - python-gflags
     - python-leveldb
     - pyyaml
-    - scikit-image
+    - scikit-image <0.16.0
     - six
     - snappy
     - numpy
@@ -70,7 +70,7 @@ requirements:
     - python-gflags
     - python-leveldb
     - pyyaml
-    - scikit-image
+    - scikit-image  <0.16.0
     - scipy
     - six
 

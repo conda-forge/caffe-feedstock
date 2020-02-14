@@ -11,7 +11,7 @@ source:
     - backport_6638-support-opencv4.patch
 
 build:
-  number: 205
+  number: 206
   detect_binary_files_with_prefix: False
   skip: True  # [win or osx or blas_impl != 'openblas']
 
@@ -38,7 +38,7 @@ requirements:
     - mkl-devel     # [blas_impl == 'mkl']
     # Some of its dependencies are not built with openblas 0.3.6 yet.
     - openblas      # [blas_impl == 'openblas']
-    - matplotlib
+    - matplotlib-base
     - networkx
     - nose
     - opencv
@@ -60,7 +60,7 @@ requirements:
     - lmdb
     - h5py
     - ipython
-    - matplotlib
+    - matplotlib-base
     - networkx
     - {{ pin_compatible('numpy') }}
     - pandas

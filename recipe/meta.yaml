@@ -33,6 +33,8 @@ requirements:
     - libprotobuf
     - lmdb
     - {{ blas_impl }}
+    - mkl-include   # [blas_impl == 'mkl']
+    - mkl-devel     # [blas_impl == 'mkl']
     - matplotlib-base
     - networkx
     - nose

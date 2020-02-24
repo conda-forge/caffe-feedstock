@@ -13,7 +13,7 @@ source:
 build:
   number: 206
   detect_binary_files_with_prefix: False
-  skip: True  # [win or osx or blas_impl != 'openblas']
+  skip: True  # [win or osx]
 
 requirements:
   build:
@@ -36,7 +36,6 @@ requirements:
     - mkl-include   # [blas_impl == 'mkl']
     - mkl           # [blas_impl == 'mkl']
     - mkl-devel     # [blas_impl == 'mkl']
-    # Some of its dependencies are not built with openblas 0.3.6 yet.
     - openblas      # [blas_impl == 'openblas']
     - matplotlib-base
     - networkx

@@ -1,3 +1,0 @@
-blas_impl:
-  - mkl
-  - openblas

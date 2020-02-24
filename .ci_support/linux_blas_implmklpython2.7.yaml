@@ -1,5 +1,5 @@
 blas_impl:
-- openblas
+- mkl
 boost:
 - 1.70.0
 c_compiler:
@@ -41,6 +41,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.7'
+- '2.7'
 snappy:
 - '1'

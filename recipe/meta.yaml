@@ -32,11 +32,7 @@ requirements:
     - protobuf
     - libprotobuf
     - lmdb
-    - libcblas      # [blas_impl == 'mkl']
-    - mkl-include   # [blas_impl == 'mkl']
-    - mkl           # [blas_impl == 'mkl']
-    - mkl-devel     # [blas_impl == 'mkl']
-    - openblas      # [blas_impl == 'openblas']
+    - {{ blas_impl }}
     - matplotlib-base
     - networkx
     - nose
@@ -62,6 +58,8 @@ requirements:
     - matplotlib-base
     - networkx
     - {{ pin_compatible('numpy') }}
+    - libblas * *{{ blas_impl }}
+    - {{ blas_impl }}
     - pandas
     - protobuf
     - libprotobuf

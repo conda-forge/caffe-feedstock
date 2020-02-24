@@ -1,5 +1,5 @@
 blas_impl:
-- mkl
+- blis
 boost:
 - 1.70.0
 c_compiler:

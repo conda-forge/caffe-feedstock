@@ -10,6 +10,22 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
+      linux_blas_implblispython2.7:
+        CONFIG: linux_blas_implblispython2.7
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implblispython3.6:
+        CONFIG: linux_blas_implblispython3.6
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implblispython3.7:
+        CONFIG: linux_blas_implblispython3.7
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_blas_implblispython3.8:
+        CONFIG: linux_blas_implblispython3.8
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
       linux_blas_implmklpython2.7:
         CONFIG: linux_blas_implmklpython2.7
         UPLOAD_PACKAGES: True

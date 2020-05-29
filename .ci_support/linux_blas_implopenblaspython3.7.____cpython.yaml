@@ -16,12 +16,14 @@ cxx_compiler_version:
 - '7'
 docker_image:
 - condaforge/linux-anvil-comp7
+gflags:
+- '2.2'
 glog:
 - 0.4.0
 hdf5:
 - 1.10.5
 libprotobuf:
-- '3.11'
+- '3.12'
 numpy:
 - '1.14'
 openblas:
@@ -35,6 +37,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.6'
+- 3.7.* *_cpython
 snappy:
 - '1'

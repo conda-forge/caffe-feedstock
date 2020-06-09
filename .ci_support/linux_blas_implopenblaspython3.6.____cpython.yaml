@@ -1,7 +1,7 @@
 blas_impl:
 - openblas
 boost:
-- 1.70.0
+- '1.72'
 c_compiler:
 - gcc
 c_compiler_version:

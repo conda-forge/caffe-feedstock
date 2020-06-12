@@ -23,8 +23,8 @@ make all \
     BLAS_INCLUDE=$PREFIX/include \
     BLAS_LIB=$PREFIX/lib \
     -j${CPU_COUNT}
-make pycaffe -j${CPU_COUNT}
-make distribute
+#make pycaffe -j${CPU_COUNT}
+#make distribute
 
 # Python installation is non-standard. So, we're fixing it.
 for f in distribute/bin/*.bin; do mv $f distribute/bin/`basename $f .bin`; done; 

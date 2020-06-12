@@ -13,7 +13,7 @@ source:
 build:
   number: 209
   detect_binary_files_with_prefix: False
-  skip: True  # [win or osx]
+  skip: True  # [win or osx or blas_imp == 'blis']
 
 requirements:
   build:

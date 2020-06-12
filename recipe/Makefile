@@ -73,8 +73,8 @@ PYTHON_INCLUDE := $(ANACONDA_HOME)/include \
 # Custom (MKL/ATLAS/OpenBLAS) include and lib directories.
 # Leave commented to accept the defaults for your choice of BLAS
 # (which should work)!
-BLAS_INCLUDE := $(ANACONDA_HOME)/include
-BLAS_LIB := $(ANACONDA_HOME)/lib
+BLAS_INCLUDE ?= $(ANACONDA_HOME)/include
+BLAS_LIB ?= $(ANACONDA_HOME)/lib
 
 # Uncomment to use Python 3 (default is Python 2)
 PYTHON_FOLDER := $(shell basename $(PYTHON_INCLUDE_LIB))

@@ -96,8 +96,10 @@ WITH_PYTHON_LAYER := 1
 INCLUDE_DIRS := $(PYTHON_INCLUDE) \
 		$(ANACONDA_HOME)/include/opencv4 \
 		$(ANACONDA_HOME)/include/opencv4/opencv2 \
-		$(ANACONDA_HOME)/include/boost
-LIBRARY_DIRS := $(PYTHON_LIB)
+		$(ANACONDA_HOME)/include/boost \
+		$(ANACONDA_HOME)/include
+LIBRARY_DIRS := $(PYTHON_LIB) \
+                $(ANACONDA_HOME)/lib
 
 # NCCL acceleration switch (uncomment to build with NCCL)
 # https://github.com/NVIDIA/nccl (last tested version: v1.2.3-1+cuda8.0)

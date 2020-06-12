@@ -8,18 +8,6 @@ jobs:
     vmImage: ubuntu-16.04
   strategy:
     matrix:
-      linux_blas_implblispython3.6.____cpython:
-        CONFIG: linux_blas_implblispython3.6.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_blas_implblispython3.7.____cpython:
-        CONFIG: linux_blas_implblispython3.7.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_blas_implblispython3.8.____cpython:
-        CONFIG: linux_blas_implblispython3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
       linux_blas_implmklpython3.6.____cpython:
         CONFIG: linux_blas_implmklpython3.6.____cpython
         UPLOAD_PACKAGES: 'True'

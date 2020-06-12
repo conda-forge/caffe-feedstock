@@ -15,7 +15,14 @@ cp $RECIPE_DIR/Makefile Makefile.config
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 
-make all BLAS=$BLAS ANACONDA_HOME=$PREFIX CUSTOM_CXX=$GXX VERBOSE=1 -j${CPU_COUNT}
+make all \
+    BLAS=$BLAS \
+    ANACONDA_HOME=$PREFIX \
+    CUSTOM_CXX=$GXX \
+    VERBOSE=1 \
+    BLAS_INCLUDE=$PREFIX/include \
+    BLAS_LIB=$PREFIX/lib \
+    -j${CPU_COUNT}
 make pycaffe -j${CPU_COUNT}
 make distribute
 

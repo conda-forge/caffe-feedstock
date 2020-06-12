@@ -1,5 +1,5 @@
 blas_impl:
-- openblas
+- blis
 boost:
 - '1.72'
 c_compiler:
@@ -41,6 +41,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.7.* *_cpython
 snappy:
 - '1'

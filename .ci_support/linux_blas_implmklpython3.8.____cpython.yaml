@@ -1,5 +1,5 @@
 blas_impl:
-- openblas
+- mkl
 boost:
 - '1.72'
 c_compiler:

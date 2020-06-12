@@ -11,7 +11,7 @@ source:
     - backport_6638-support-opencv4.patch
 
 build:
-  number: 208
+  number: 209
   detect_binary_files_with_prefix: False
   skip: True  # [win or osx or blas_impl != 'openblas']
 
@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make
   host:
     - python
     - boost

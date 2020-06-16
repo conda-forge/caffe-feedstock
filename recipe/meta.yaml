@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
     - make
     - cmake
   host:
@@ -71,7 +72,7 @@ requirements:
     - python-gflags
     - python-leveldb
     - pyyaml
-    - scikit-image  <0.16.0
+    - scikit-image <0.16.0
     - scipy
     - six
 
@@ -100,8 +101,6 @@ test:
 
     # Test libraries.
     - test -f "${PREFIX}/lib/libcaffe${SHLIB_EXT}"            # [unix]
-    - test -f "${PREFIX}/lib/libcaffe.a"                      # [unix]
-    
 
   imports:
     - caffe

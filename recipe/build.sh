@@ -2,43 +2,56 @@
 
 set -ex
 
+# Setup CMake build location
+mkdir build
+cd build
+
+# Configure, build, test, and install.
+if [ "$(uname)" == "Linux" ];
+then
+    # Stop Boost from using libquadmath.
+    export CXXFLAGS="${CXXFLAGS} -DBOOST_MATH_DISABLE_FLOAT128"
+fi
+
 if [[ ${blas_impl} == openblas ]]; then
     BLAS=open
 else
     BLAS=mkl
 fi
 
-cp $RECIPE_DIR/Makefile Makefile.config
+# fix issue with linker when using gcc 7.3.0
+if [[ ${target_platform} =~ .*linux.* ]]; then
+    export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
+fi
+
+cmake -DCPU_ONLY=1                                          \
+      -DBLAS="${BLAS}"                                      \
+      -DCMAKE_INSTALL_PREFIX="${PREFIX}"                    \
+      -DNUMPY_INCLUDE_DIR="${SITE_PKGS}/numpy/core/include" \
+      -DNUMPY_VERSION=${NPY_VER}                            \
+      -DPYTHON_EXECUTABLE="${PREFIX}/bin/python"            \
+      -DBUILD_docs="OFF"                                    \
+      ..
+make -j${CPU_COUNT}
 
 # there's a math error associated with MKL seemingly
 # https://github.com/BVLC/caffe/issues/4083#issuecomment-227046096
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
+make -j${CPU_COUNT} runtest
 
-make all \
-    BLAS=$BLAS \
-    ANACONDA_HOME=$PREFIX \
-    CUSTOM_CXX=$GXX \
-    VERBOSE=1 \
-    BLAS_INCLUDE=$PREFIX/include \
-    BLAS_LIB=$PREFIX/lib \
-    -j${CPU_COUNT}
-#make pycaffe -j${CPU_COUNT}
-#make distribute
+make install
 
 # Python installation is non-standard. So, we're fixing it.
-for f in distribute/bin/*.bin; do mv $f distribute/bin/`basename $f .bin`; done; 
-cp -r distribute/bin ${PREFIX}/
-cp -r distribute/include ${PREFIX}/
-cp -r distribute/lib ${PREFIX}/
-
-mv distribute/python/caffe "${SP_DIR}/"
-for FILENAME in $( cd "distribute/python/" && find . -name "*.py" | sed 's|./||' );
+mv "${PREFIX}/python/caffe" "${SP_DIR}/"
+for FILENAME in $( cd "${PREFIX}/python/" && find . -name "*.py" | sed 's|./||' );
 do
-    chmod +x "distribute/python/${FILENAME}"
-    cp "distribute/python/${FILENAME}" "distribute/bin/${FILENAME//.py}"
+    chmod +x "${PREFIX}/python/${FILENAME}"
+    cp "${PREFIX}/python/${FILENAME}" "${PREFIX}/bin/${FILENAME//.py}"
 done
+rm -rf "${PREFIX}/python/"
 
-if [[ -d "distribute/lib64" ]]; then
-    mv distribute/lib64/* ${PREFIX}/lib/
+if [[ -d "${PREFIX}/lib64" ]]; then
+    mv ${PREFIX}/lib64/* ${PREFIX}/lib/
+    rmdir ${PREFIX}/lib64
 fi

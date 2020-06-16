@@ -11,14 +11,17 @@ source:
     - backport_6638-support-opencv4.patch
 
 build:
-  number: 208
+  number: 209
   detect_binary_files_with_prefix: False
-  skip: True  # [win or osx or blas_impl != 'openblas']
+  skip: True  # [win or osx or blas_impl == 'blis']
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - make
+    - cmake
   host:
     - python
     - boost
@@ -32,12 +35,8 @@ requirements:
     - protobuf
     - libprotobuf
     - lmdb
-    - libcblas      # [blas_impl == 'mkl']
-    - mkl-include   # [blas_impl == 'mkl']
-    - mkl           # [blas_impl == 'mkl']
-    - mkl-devel     # [blas_impl == 'mkl']
-    # Some of its dependencies are not built with openblas 0.3.6 yet.
-    - openblas      # [blas_impl == 'openblas']
+    - {{ blas_impl }}
+    - mkl-include  # [blas_impl == 'mkl']
     - matplotlib-base
     - networkx
     - nose
@@ -53,6 +52,8 @@ requirements:
     - snappy
     - numpy
   run:
+    - {{ blas_impl }}
+    - libblas * *{{ blas_impl }}
     - python
     - boost
     - opencv
@@ -70,7 +71,7 @@ requirements:
     - python-gflags
     - python-leveldb
     - pyyaml
-    - scikit-image  <0.16.0
+    - scikit-image <0.16.0
     - scipy
     - six
 
@@ -99,8 +100,6 @@ test:
 
     # Test libraries.
     - test -f "${PREFIX}/lib/libcaffe${SHLIB_EXT}"            # [unix]
-    - test -f "${PREFIX}/lib/libcaffe.a"                      # [unix]
-    
 
   imports:
     - caffe

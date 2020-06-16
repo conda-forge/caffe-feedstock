@@ -73,8 +73,8 @@ PYTHON_INCLUDE := $(ANACONDA_HOME)/include \
 # Custom (MKL/ATLAS/OpenBLAS) include and lib directories.
 # Leave commented to accept the defaults for your choice of BLAS
 # (which should work)!
-BLAS_INCLUDE := $(ANACONDA_HOME)/include
-BLAS_LIB := $(ANACONDA_HOME)/lib
+BLAS_INCLUDE ?= $(ANACONDA_HOME)/include
+BLAS_LIB ?= $(ANACONDA_HOME)/lib
 
 # Uncomment to use Python 3 (default is Python 2)
 PYTHON_FOLDER := $(shell basename $(PYTHON_INCLUDE_LIB))
@@ -96,8 +96,10 @@ WITH_PYTHON_LAYER := 1
 INCLUDE_DIRS := $(PYTHON_INCLUDE) \
 		$(ANACONDA_HOME)/include/opencv4 \
 		$(ANACONDA_HOME)/include/opencv4/opencv2 \
-		$(ANACONDA_HOME)/include/boost
-LIBRARY_DIRS := $(PYTHON_LIB)
+		$(ANACONDA_HOME)/include/boost \
+		$(ANACONDA_HOME)/include
+LIBRARY_DIRS := $(PYTHON_LIB) \
+                $(ANACONDA_HOME)/lib
 
 # NCCL acceleration switch (uncomment to build with NCCL)
 # https://github.com/NVIDIA/nccl (last tested version: v1.2.3-1+cuda8.0)

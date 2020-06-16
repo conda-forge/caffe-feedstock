@@ -20,6 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - make
+    - cmake
   host:
     - python
     - boost

@@ -35,11 +35,7 @@ requirements:
     - protobuf
     - libprotobuf
     - lmdb
-    - mkl-include   # [blas_impl == 'mkl']
-    - mkl           # [blas_impl == 'mkl']
-    - mkl-devel     # [blas_impl == 'mkl']
-    # Some of its dependencies are not built with openblas 0.3.6 yet.
-    - openblas      # [blas_impl == 'openblas']
+    - {{ blas_impl }}
     - matplotlib-base
     - networkx
     - nose
@@ -55,6 +51,8 @@ requirements:
     - snappy
     - numpy
   run:
+    - {{ blas_impl }}
+    - libblas * *{{ blas_impl }}
     - python
     - boost
     - opencv

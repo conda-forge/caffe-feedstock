@@ -194,6 +194,3 @@ Feedstock Maintainers
 * [@marcelotrevisani](https://github.com/marcelotrevisani/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 
-
-<!-- dummy commit to enable rerendering -->
-

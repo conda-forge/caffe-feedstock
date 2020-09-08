@@ -1,5 +1,5 @@
 blas_impl:
-- mkl
+- openblas
 boost:
 - '1.72'
 c_compiler:
@@ -27,9 +27,9 @@ glog:
 hdf5:
 - 1.10.6
 libprotobuf:
-- '3.12'
+- '3.13'
 numpy:
-- '1.14'
+- '1.16'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -37,7 +37,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.7.* *_cpython
 snappy:
 - '1'
 target_platform:

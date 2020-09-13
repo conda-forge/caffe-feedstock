@@ -38,7 +38,7 @@ make -j${CPU_COUNT}
 # https://github.com/BVLC/caffe/issues/4083#issuecomment-227046096
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
-make -j${CPU_COUNT} runtest
+make -j${CPU_COUNT} runtest -lrt
 
 make install
 

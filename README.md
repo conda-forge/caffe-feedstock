@@ -32,87 +32,45 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_blas_implmklc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.6.____cpythontarget_platformlinux-64</td>
+              <td>linux_64_blas_implmklpython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.6.____cpythontarget_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklpython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_blas_implmklc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.7.____cpythontarget_platformlinux-64</td>
+              <td>linux_64_blas_implmklpython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.7.____cpythontarget_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklpython3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_blas_implmklc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.8.____cpythontarget_platformlinux-64</td>
+              <td>linux_64_blas_implmklpython3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.8.____cpythontarget_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklpython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_blas_implmklc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64</td>
+              <td>linux_64_blas_implopenblaspython3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblaspython3.6.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_blas_implmklc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.7.____cpythontarget_platformlinux-64</td>
+              <td>linux_64_blas_implopenblaspython3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.7.____cpythontarget_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblaspython3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_blas_implmklc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.8.____cpythontarget_platformlinux-64</td>
+              <td>linux_64_blas_implopenblaspython3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implmklc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.8.____cpythontarget_platformlinux-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_blas_implopenblasc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.6.____cpythontarget_platformlinux-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblasc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.6.____cpythontarget_platformlinux-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_blas_implopenblasc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.7.____cpythontarget_platformlinux-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblasc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.7.____cpythontarget_platformlinux-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_blas_implopenblasc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.8.____cpythontarget_platformlinux-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblasc_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.8.____cpythontarget_platformlinux-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_blas_implopenblasc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblasc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_blas_implopenblasc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.7.____cpythontarget_platformlinux-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblasc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.7.____cpythontarget_platformlinux-64" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_blas_implopenblasc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.8.____cpythontarget_platformlinux-64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3777&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblasc_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.8.____cpythontarget_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/caffe-feedstock?branchName=master&jobName=linux&configuration=linux_64_blas_implopenblaspython3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr>

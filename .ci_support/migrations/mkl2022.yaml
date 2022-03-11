@@ -2,6 +2,8 @@ __migrator:
   build_number: 1
   kind: version
   migration_number: 1
-libprotobuf:
-- '3.12'
-migrator_ts: 1590512843.0185797
+migrator_ts: 1642615295
+mkl:
+- 2022
+mkl_devel:
+- 2022

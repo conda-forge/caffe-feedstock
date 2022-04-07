@@ -1,35 +1,37 @@
 blas_impl:
-- openblas
+- mkl
 boost:
-- '1.72'
+- 1.74.0
 c_compiler:
 - gcc
 c_compiler_version:
-- '7'
+- '10'
+cdt_name:
+- cos6
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '7'
+- '10'
 docker_image:
-- condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '7'
+- '10'
 gflags:
 - '2.2'
 glog:
-- 0.4.0
+- '0.6'
 hdf5:
 - 1.10.6
 libprotobuf:
-- '3.12'
+- '3.18'
 numpy:
-- '1.14'
+- '1.19'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -37,8 +39,14 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.9.* *_cpython
 snappy:
 - '1'
 target_platform:
 - linux-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+  - fortran_compiler_version
+- - python
+  - numpy
